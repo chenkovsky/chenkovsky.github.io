@@ -1,0 +1,287 @@
+/*-------------|
+|\           / |
+|   \      /|  |
+|     \  /  |p |
+| bt   / st |  |
+|    /   \  | /|
+|  /   s   \/  |
+|/   \    /  mt|
+/------\/-------
+
+*/
+
+@import "node_modules/mathsass/dist/_math.scss";
+
+@function st($board) {
+    @return ($board/2)/sqrt(2);
+}
+@function mt($board) {
+    @return $board/2;
+}
+@function bt($board){
+    @return $board/sqrt(2);
+}
+@function s($board){
+    @return ($board/2)/sqrt(2);
+}
+@function p($board){
+    @return $board/2;
+}
+
+
+@mixin transform($transforms) {
+    -moz-transform: $transforms;
+    -o-transform: $transforms;
+    -ms-transform: $transforms;
+    -webkit-transform: $transforms;
+    transform: $transforms;
+}
+
+
+@mixin triangle($right, $color: red) {
+    border-top: $right solid $color; 
+    opacity: 0.7;
+    border-right: $right solid transparent;
+    width: 0;
+    height: $right;
+}
+
+@mixin square($length, $color: red) {
+    width: $length;
+    height: $length;
+    background: $color;
+    opacity: 0.7;
+}
+
+/*
+@mixin rectangle($length, $width){
+    width: $length;
+    height: $width;
+}
+*/
+
+@mixin parallelogram($length: 150px, $color: blue, $trans: ""){
+    width: $length/sqrt(2);
+    height: $length/sqrt(2);
+    background: $color;
+    @include transform($trans);
+    opacity: 0.7;
+}
+
+.para {
+    @include parallelogram(200px);
+}
+
+$bird1_size: 100;
+.bird1_1{
+    @include triangle($right: st($bird1_size)*1px, $color: #ff4136);
+    @include transform(rotate(-180deg));
+}
+
+.bird1_2{
+    @include square(s($bird1_size)*1px, #ffdc00);
+    @include transform(translate(0px, s($bird1_size)*-1px));
+}
+
+.bird1_3{
+    @include triangle(s($bird1_size)*1px, #0074d9);
+    @include transform(translate(s($bird1_size)*2px,s($bird1_size)*-1px) rotate(90deg));
+}
+.bird1_4{
+    @include parallelogram(p($bird1_size)*1px, #7fdbff, translate(s($bird1_size)*2px, 0px) rotate(90deg) skew(-45deg)); //translate(s($bird1_size)*-2px,s($bird1_size)*2px)
+}
+.bird1_5 {
+    @include triangle($right: bt($bird1_size)*1px, $color: #3d9970);
+    @include transform(translate(s($bird1_size)*2px, s($bird1_size)*-1px));
+}
+
+.bird1_6 {
+    @include triangle($right: st($bird1_size)*1px, $color: #39cccc);
+    @include transform(translate(s($bird1_size)*(3 - 0.5/sqrt(2))*1px, s($bird1_size)/sqrt(2)*0.5px) rotate(45deg));
+}
+
+.bird1_7 {
+    @include triangle($right: bt($bird1_size)*1px, $color: #ff851b);
+    @include transform(translate(s($bird1_size)*3px, s($bird1_size)*-1px) rotate(-180deg))
+}
+
+$bird2_size: 100;
+#bird2 {
+    //left: 200px
+}
+
+.bird2_1 {
+    @include triangle($right: st($bird2_size)*1px, $color: #3d9970);
+    @include transform(rotate(-135deg));
+}
+
+.bird2_2 {
+    @include parallelogram(p($bird2_size)*1px, #0074d9, translate((s($bird2_size) / sqrt(2))* -1px, (s($bird2_size) / sqrt(2))* -1px) rotate(45deg) skew(45deg));
+}
+
+.bird2_3 {
+    @include triangle($right: st($bird2_size)*1px, $color: #ffdc00);
+    @include transform(translate(s($bird2_size)*-1px, s($bird2_size)*(sqrt(2))*1px) rotate(-90deg));
+}
+
+.bird2_4 {
+    @include square(s($bird2_size)*1px, #ff4136);
+    @include transform(translate(s($bird2_size)*-2px, s($bird2_size)*(0.5-0.125/sqrt(2))*1px));
+}
+
+.bird2_5 {
+    @include triangle($right: bt($bird2_size)*1px, $color: #f012be);
+    @include transform(translate(s($bird2_size)*-2px, s($bird2_size)*(sqrt(2))*1px));
+}
+
+.bird2_6 {
+    @include triangle($right: st($bird2_size)*1px, $color: #c3d946);
+    @include transform(translate(s($bird2_size)*-2px, s($bird2_size)*(0.5-0.125/sqrt(2))*1px) rotate(90deg));
+}
+
+.bird2_7 {
+    @include triangle($right: bt($bird2_size)*1px, $color: #7fdbff);
+    @include transform(translate(s($bird2_size)*-3px, s($bird2_size)*(0.5-0.125/sqrt(2))*1px) rotate(-90deg));
+}
+
+
+$nl_size: 100;
+.nl_1{//head
+    @include square(s($nl_size)*1px, #c3d946);
+    @include transform(rotate(45deg));
+}
+
+.nl_2{
+    @include triangle($right: bt($nl_size)*1px, $color: #0177bf);
+    @include transform(translate(0px, s($nl_size)*(sqrt(2))*2px) rotate(-135deg));
+}
+
+.nl_3{//body
+    @include triangle($right: bt($nl_size)*1px, $color: #FFDC00);
+    @include transform(translate(s($nl_size)*(1/sqrt(2))*-1px, s($nl_size)*(0.7+sqrt(2))*1px) rotate(45deg));
+}
+
+.nl_4{//left leg
+    @include triangle($right: mt($nl_size)*1px, $color: #39cccc);
+    @include transform(translate(s($nl_size)*-2px, s($nl_size)*(0.85+sqrt(2))*2px) rotate(-135deg));
+}
+
+.nl_5{//left foot
+    @include triangle($right: st($nl_size)*1px, $color: #3d9970);
+    @include transform(translate(s($nl_size)*(1.4+sqrt(2))*-1px, s($nl_size)*(sqrt(2))*2px) rotate(45deg));
+}
+
+.nl_6{//right leg
+    @include parallelogram(p($nl_size)*1px, #ff4136, translate((s($nl_size) / sqrt(2))* 1px, (s($nl_size))* 3.5px) rotate(45deg) skew(-45deg));
+}
+
+.nl_7{
+    @include triangle($right: st($nl_size)*1px, $color: #ff851b);
+    @include transform(translate(s($nl_size)*(sqrt(2))*1px, s($nl_size)*4.9px) rotate(-135deg));
+}
+
+
+$zn_size: 100;
+.zn_1{//head
+    @include square(s($zn_size)*1px, #c3d946);
+    @include transform(rotate(45deg));
+}
+
+.zn_2{
+    @include triangle($right: bt($zn_size)*1px, $color: #ff4136);
+    @include transform(translate(s($zn_size)*0.5px, s($zn_size)*(sqrt(2)+0.1)*2px) rotate(180deg));
+}
+
+
+.zn_3{//body
+    @include triangle($right: st($zn_size)*1px, $color: #5dbe79);
+    @include transform(translate(s($zn_size)*-0.2px, s($zn_size)*3.7px) rotate(-135deg));
+}
+
+.zn_4{//leg
+    @include parallelogram(p($zn_size)*1px, #ffdd01, translate((s($zn_size) / sqrt(2))* 0.7px, (s($zn_size))* 4.4px) rotate(135deg) skew(-45deg));
+}
+
+.zn_5{//back
+    @include triangle($right: st($zn_size)*1px, $color: #0177bf);
+    @include transform(translate(s($zn_size)*1.2px, s($zn_size)*(sqrt(2))*2px) rotate(135deg));
+}
+
+.zn_6{//foot
+    @include triangle($right: bt($zn_size)*1px, $color: #fdaf17);
+    @include transform(translate(s($zn_size)*0.5px, s($zn_size)*4.4px) rotate(45deg));
+}
+
+.zn_7{//hand
+    @include triangle($right: st($nl_size)*1px, $color: #00bdd0);
+    @include transform(translate(s($nl_size)*(sqrt(2))*-0.5px, s($nl_size)*2.3px) rotate(-135deg));
+}
+
+$top_px : 1000px;
+.zn_bird{
+    top:0px;
+    left:600px;
+    position: absolute;
+    animation: zn_anim 3s linear 0s;
+    //animation-timing-function: linear;
+    //animation-duration: 3s;
+}
+
+#bird1{
+    top: -130px;
+}
+
+#bird2{
+    top:-200px
+}
+
+#nl_bird{
+    top:0px;
+    left:500px;
+    position: absolute;
+    animation: nl_anim 3s linear 0s;
+    //animation-name: nl_anim;
+    //animation-duration: 3s;
+}
+
+.zn_bird2{
+    top:2000px;
+    left:600px;
+    position: absolute;
+    //animation-timing-function: ease-in;
+    animation: zn_anim2 1s ease-in 0s;
+    //animation-duration: 3s;
+}
+
+
+@keyframes zn_anim2{
+    0% {top:0px};
+    100% {top:2000px};
+}
+
+@keyframes zn_anim {
+  0% { left: 1000px; top:0px}
+  100% {left: 600px; top:0px}
+}
+
+@keyframes nl_anim {
+  0% { left: 100px; }
+  100% { left: 500px; }
+}
+
+@keyframes str_anim {
+    0% {opacity: 0;}
+    100% {opacity: 0.7;}
+}
+
+#label {
+    position: absolute;
+    font-size: 40;
+    animation-timing-function: linear;
+    animation-name: str_anim;
+    animation-timing-function: linear;
+    animation-duration: 4s;
+    color: #ff4136;
+    left:450px;
+    top:350px;
+}
