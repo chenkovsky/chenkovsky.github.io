@@ -37,6 +37,14 @@
     transform: $transforms;
 }
 
+@mixin animation($animations){
+    -webkit-animation: $animations;
+    -moz-animation: $animations;
+    -o-animation: $animations;
+    -ms-animation: $animations;
+    animation: $animations;
+}
+
 
 @mixin triangle($right, $color: red) {
     border-top: $right solid $color; 
@@ -74,7 +82,7 @@
 
 $bird1_size: 100;
 .bird1_1{
-    @include triangle($right: st($bird1_size)*1px, $color: #ff4136);
+    @include triangle($right: round(st($bird1_size))*1px, $color: #ff4136);
     @include transform(rotate(-180deg));
 }
 
@@ -140,8 +148,13 @@ $bird2_size: 100;
 }
 
 .bird2_7 {
-    @include triangle($right: bt($bird2_size)*1px, $color: #7fdbff);
-    @include transform(translate(s($bird2_size)*-3px, s($bird2_size)*(0.5-0.125/sqrt(2))*1px) rotate(-90deg));
+    @include triangle($right: bt($bird2_size)*1px, $color: #7fdbff);//
+    @include transform(translate(s($bird2_size)*-3*1px, s($bird2_size)*(0.5-0.125/sqrt(2))*1px) rotate(-90deg));
+}
+
+.bird2_8 {
+    @include triangle($right: bt($bird2_size)*1px, $color: black);
+    @include transform(translate(-106.06602px, 140.55267px) rotate(-90deg));
 }
 
 
@@ -204,17 +217,17 @@ $zn_size: 100;
 
 .zn_5{//back
     @include triangle($right: st($zn_size)*1px, $color: #0177bf);
-    @include transform(translate(s($zn_size)*1.2px, s($zn_size)*(sqrt(2))*2px) rotate(135deg));
+    @include transform(translate(s($zn_size)*1.2*1px, (s($zn_size)*(sqrt(2))*2)*1px) rotate(135deg));
 }
 
 .zn_6{//foot
-    @include triangle($right: bt($zn_size)*1px, $color: #fdaf17);
-    @include transform(translate(s($zn_size)*0.5px, s($zn_size)*4.4px) rotate(45deg));
+    @include triangle($right: (bt($zn_size))*1px, $color: #fdaf17);
+    @include transform(translate((s($zn_size)*0.5)*1px, (s($zn_size)*4.4)*1px) rotate(45deg));
 }
 
 .zn_7{//hand
-    @include triangle($right: st($nl_size)*1px, $color: #00bdd0);
-    @include transform(translate(s($nl_size)*(sqrt(2))*-0.5px, s($nl_size)*2.3px) rotate(-135deg));
+    @include triangle($right: (st($nl_size))*1px, $color: #00bdd0);
+    @include transform(translate((s($nl_size)*(sqrt(2))*-0.5)*1px, (s($nl_size)*2.3)*1px) rotate(-135deg));
 }
 
 $top_px : 1000px;
@@ -222,7 +235,7 @@ $top_px : 1000px;
     top:0px;
     left:600px;
     position: absolute;
-    animation: zn_anim 3s linear 0s;
+    @include animation(zn_anim 3s linear 0s);
     //animation-timing-function: linear;
     //animation-duration: 3s;
 }
@@ -239,7 +252,7 @@ $top_px : 1000px;
     top:0px;
     left:500px;
     position: absolute;
-    animation: nl_anim 3s linear 0s;
+    @include animation(nl_anim 3s linear 0s);
     //animation-name: nl_anim;
     //animation-duration: 3s;
 }
@@ -249,7 +262,7 @@ $top_px : 1000px;
     left:600px;
     position: absolute;
     //animation-timing-function: ease-in;
-    animation: zn_anim2 1s ease-in 0s;
+    @include animation(zn_anim2 1s ease-in 0s);
     //animation-duration: 3s;
 }
 
@@ -274,13 +287,83 @@ $top_px : 1000px;
     100% {opacity: 0.7;}
 }
 
+/////////////////////////////////////////////////
+@-webkit-keyframes zn_anim2 {
+  0% {
+    top: 0px; }
+  100% {
+    top: 2000px; } }
+@-webkit-keyframes zn_anim {
+  0% {
+    left: 1000px;
+    top: 0px; }
+  100% {
+    left: 600px;
+    top: 0px; } }
+@-webkit-keyframes nl_anim {
+  0% {
+    left: 100px; }
+  100% {
+    left: 500px; } }
+@-webkit-keyframes str_anim {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 0.7; } }
+/////////////////////////////////////////////////
+@-moz-keyframes zn_anim2 {
+  0% {
+    top: 0px; }
+  100% {
+    top: 2000px; } }
+@-moz-keyframes zn_anim {
+  0% {
+    left: 1000px;
+    top: 0px; }
+  100% {
+    left: 600px;
+    top: 0px; } }
+@-moz-keyframes nl_anim {
+  0% {
+    left: 100px; }
+  100% {
+    left: 500px; } }
+@-moz-keyframes str_anim {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 0.7; } }
+/////////////////////////////////////////////////
+@-o-keyframes zn_anim2 {
+  0% {
+    top: 0px; }
+  100% {
+    top: 2000px; } }
+@-o-keyframes zn_anim {
+  0% {
+    left: 1000px;
+    top: 0px; }
+  100% {
+    left: 600px;
+    top: 0px; } }
+@-o-keyframes nl_anim {
+  0% {
+    left: 100px; }
+  100% {
+    left: 500px; } }
+@-o-keyframes str_anim {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 0.7; } }
+
 #label {
     position: absolute;
     font-size: 40;
-    animation-timing-function: linear;
-    animation-name: str_anim;
-    animation-timing-function: linear;
-    animation-duration: 4s;
+    @include animation(str_anim 4s linear 0s);
+    //animation-timing-function: linear;
+    //animation-name: str_anim;
+    //animation-duration: 4s;
     color: #ff4136;
     left:450px;
     top:350px;

@@ -16,6 +16,12 @@
     width: 0;
     height: 0;
     transform-origin:0 0;
+    -ms-transform-origin:0 0;
+    -moz-transform-origin:0 0;
+    -webkit-transform-origin:0 0;
+    -o-transform-origin:0 0;
+    
+    
 }
 .t1{
     
@@ -117,10 +123,18 @@
         
         
         <script type="application/javascript">
-             document.getElementById("zn_bird").addEventListener("animationend", function(e){
+            //alert("OK");
+            callback1 = function(e){
+                 //alert("OKKK");
                  document.getElementById("zn_bird").className = "wrap zn_bird2";
-                 document.getElementById("zn_bird").addEventListener("animationend", function(e){document.getElementById("label").innerText = "噗，太胖了~~";},false);
-             }, false);
+                callback2 = function(e){//alert("Hehehe");
+                     document.getElementById("label").innerText = "噗，太胖了,喜鹊飞不动了~~";
+                }
+                document.getElementById("zn_bird").addEventListener("animationend", callback2 ,false);
+                document.getElementById("zn_bird").addEventListener("webkitAnimationEnd", callback2 ,false);
+             }
+             document.getElementById("zn_bird").addEventListener("animationend", callback1, false);
+             document.getElementById("zn_bird").addEventListener("webkitAnimationEnd", callback1, false);
         </script>
 	</body>
 </html>
