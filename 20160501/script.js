@@ -17,4 +17,4 @@ function getQueryVariable(variable) {
 }
 
 var addr = getQueryVariable("address") || "";
-document.getElementById("address").innerHTML = "祝 " + addr;
+document.getElementById("address").innerHTML = " " + addr;
