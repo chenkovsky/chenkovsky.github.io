@@ -76,39 +76,55 @@ body {
 
 .cloud {
   animation: move 12s infinite ;
+  -webkit-animation: move 12s infinite ;
+  -moz-animation: move 12s infinite ;
     transform: scale(0.9);
 }
 
 .cloud2 {
   animation: move 10s infinite;
+  -webkit-animation: move 10s infinite ;
+  -moz-animation: move 10s infinite ;
 }
 
 .cloud3{
     fill:#EAF7F9;
-     animation: move 18s infinite;
-     transform: scale(0.7);
+    animation: move 18s infinite;
+    -webkit-animation: move 18s infinite;
+    -moz-animation: move 18s infinite;
+    transform: scale(0.7);
 }
 
 .cloud4{
     fill:#EAF7F9;
-     animation: move 18s infinite;
-     transform: scale(0.7);
+    animation: move 18s infinite;
+    -webkit-animation: move 18s infinite;
+    -moz-animation: move 18s infinite;
+    transform: scale(0.7);
 }
 
 .plane {
   animation: planeing 2s infinite ;
+  -webkit-animation: planeing 2s infinite ;
+  -moz-animation: planeing 2s infinite ;
 }
 
 .catting {
   animation: catting 2s infinite ;
+  -webkit-animation: catting 2s infinite ;
+  -moz-animation: catting 2s infinite ;
 }
 
 #whisker{
     animation: hair 1.4s infinite;
+    -webkit-animation: hair 1.4s infinite;
+    -moz-animation: hair 1.4s infinite;
     transform-origin: 50% 50%;}
 
 .propeller{fill:#D0F4FC;
     animation: shrink .1s infinite;
+    -webkit-animation: shrink .1s infinite;
+    -moz-animation: shrink .1s infinite;
     transform-origin: 50% 50%;}
 
 /* --------------------------
