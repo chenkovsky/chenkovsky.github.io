@@ -37,27 +37,60 @@ body {
 }
 
 @keyframes planeing {
-    0% { transform: translate(0px, 0px); }
-    50% { transform: translate(0px, 32px); }
-    100% { transform: translate(0px, 0px); }
+    0% { transform: translate(0px, 0px); 
+    -webkit-transform: translate(0px, 0px);
+    -moz-transform: translate(0px, 0px);
+    }
+    50% { transform: translate(0px, 32px); 
+    -webkit-transform: translate(0px, 32px);
+    -moz-transform: translate(0px, 32px);
+    }
+    100% { 
+        transform: translate(0px, 0px); 
+        -webkit-transform: translate(0px, 0px);
+        -moz-transform: translate(0px, 0px);
+    }
 }
 
 @keyframes catting {
-    0% { transform: translate(0px, 0px); }
-    50% { transform: translate(0px, 22px);}
-    100% { transform: translate(0px, 0px); }
+    0% { transform: translate(0px, 0px); 
+    -webkit-transform: translate(0px, 0px);
+    -moz-transform: translate(0px, 0px);
+    }
+    50% { transform: translate(0px, 22px);
+    -webkit-transform: translate(0px, 22px);
+    -moz-transform: translate(0px, 22px);
+    }
+    100% { transform: translate(0px, 0px); 
+    -webkit-transform: translate(0px, 0px);
+    -moz-transform: translate(0px, 0px);
+    }
 }
 
 @keyframes shrink {
-    0% { transform: none;}
-    50% { transform: scale(1,1.2); }
-    100% {transform: none; }
+    0% { transform: none; 
+        -webkit-transform: none;
+        -moz-transform: none;
+    }
+    50% { transform: scale(1,1.2); 
+        -webkit-transform: scale(1,.8);
+        -moz-transform: scale(1,.8);
+    }
+    100% {transform: none; 
+        -webkit-transform: none;
+        -moz-transform: none;}
 }
 
 @keyframes hair {
-    0% { transform: none;}
-    50% { transform: scale(1,.8); }
-    100% {transform: none; }
+    0% { transform: none;
+        -webkit-transform: none;
+        -moz-transform: none;}
+    50% { transform: scale(1,.8); 
+        -webkit-transform: scale(1,.8);
+        -moz-transform: scale(1,.8);}
+    100% {transform: none; 
+        -webkit-transform: none;
+        -moz-transform: none;}
 }
 
 
